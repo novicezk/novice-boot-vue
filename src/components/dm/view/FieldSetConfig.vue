@@ -12,7 +12,7 @@
         <a-button type="link" size="small" @click="$emit('updateFieldSet', fieldSet)"
           >编辑</a-button
         >
-        <a-button type="link" size="small" @confirm="$emit('removeFieldSet', fieldSet)"
+        <a-button type="link" size="small" @click="$emit('removeFieldSet', fieldSet)"
           >删除</a-button
         >
       </a-button-group>

@@ -65,6 +65,7 @@
             <module-list v-if="tab.type === 'module'" />
             <type-list :moduleId="tab.moduleId" v-if="tab.type === 'type'" />
             <type-setting :type="tab.currentType" v-if="tab.type === 'type-setting'" />
+            <listener-list v-if="tab.type === 'listener'" />
             <menu-list v-if="tab.type === 'menu'" />
             <category-list v-if="tab.type === 'category'" />
             <role-list v-if="tab.type === 'role'" />
@@ -103,6 +104,7 @@ import MainHeader from "../components/MainHeader";
 import ModuleList from "../components/dm/ModuleList";
 import TypeList from "../components/dm/type/TypeList";
 import TypeSetting from "../components/dm/type/TypeSetting";
+import ListenerList from "../components/dm/ListenerList";
 import MenuList from "../components/tk/menu/MenuList";
 import CategoryList from "../components/tk/CategoryList";
 import RoleList from "../components/us/RoleList";
@@ -121,6 +123,7 @@ export default {
     ModuleList,
     TypeList,
     TypeSetting,
+    ListenerList,
     MenuList,
     CategoryList,
     RoleList,
@@ -213,6 +216,4 @@ export default {
   },
 };
 </script>
-<style lang="less">
-
-</style>
+<style lang="less"></style>
