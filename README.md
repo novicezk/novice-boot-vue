@@ -1,12 +1,13 @@
 # novice-boot-vue
 
-用于构建基于novice-boot-vue的项目，示例 [https://github.com/novicezk/novice-boot-vue-simple](https://github.com/novicezk/novice-boot-vue-simple)
+用于构建基于novice-boot-vue的项目，示例 [https://github.com/novicezk/novice-boot-vue-demo](https://github.com/novicezk/novice-boot-vue-demo)
 1. 初始化项目
 ```shell
-vue create novice-boot-vue-simple
+# vue cli 4.5+
+vue create novice-boot-vue-demo
 # select vue3
-cd novice-boot-vue-simple
-git clone --depth=1 git@github.com:novicezk/novice-boot-vue.git
+cd novice-boot-vue-demo
+git submodule add -- "git@github.com:novicezk/novice-boot-vue.git" "novice-boot-vue"
 ```
 2. 修改 `package.json`
 ```json
