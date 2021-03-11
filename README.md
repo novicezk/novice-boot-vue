@@ -6,13 +6,21 @@
 # vue cli 4.5+
 vue create novice-boot-vue-demo
 # select vue3
-cd novice-boot-vue-demo
-git submodule add -- "git@github.com:novicezk/novice-boot-vue.git" "novice-boot-vue"
 ```
 2. 修改 `package.json`
 ```json
   "dependencies": {
-    "novice-boot-vue": "file:novice-boot-vue"
+    "novice-boot-vue": "^1.0.3",
+    "@kangc/v-md-editor": "^2.2.0",
+    "ant-design-vue": "^2.0.1",
+    "axios": "^0.21.0",
+    "core-js": "^3.6.5",
+    "less": "^3.13.0",
+    "less-loader": "^7.1.0",
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.0-0",
+    "vuedraggable": "^4.0.1",
+    "vuex": "^4.0.0-0"
   },
 ```
 3. 修改 `src/App.vue`
@@ -87,6 +95,7 @@ createApp(App).use(Novice).use(router).mount('#app');
 ```
 6. 添加 `vue.config.js`
 ```js
+process.env.VUE_APP_BACKEND_URL = "/backend";
 module.exports = {
     publicPath: './',
     lintOnSave: 'warning',
@@ -114,12 +123,8 @@ module.exports = {
     }
 }
 ```
-7. 添加 `.env`
-```properties
-BACKEND_URL=/backend
-```
 
-8. 构建启动项目
+7. 构建启动项目
 ```shell
 npm install
 npm run serve

@@ -1,4 +1,4 @@
-let baseURL = process.env.BACKEND_URL;
+let baseURL = process.env.VUE_APP_BACKEND_URL;
 
 let syncRequest = opts => {
   let xmlhttp = new XMLHttpRequest();

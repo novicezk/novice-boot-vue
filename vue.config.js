@@ -1,3 +1,4 @@
+process.env.VUE_APP_BACKEND_URL = "/backend";
 module.exports = {
   publicPath: './',
   lintOnSave: 'warning',

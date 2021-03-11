@@ -2,7 +2,7 @@ import axios from 'axios';
 import vuex from '../store';
 
 let rest = axios.create({
-  baseURL: process.env.BACKEND_URL
+  baseURL: process.env.VUE_APP_BACKEND_URL
 });
 
 rest.interceptors.response.use(

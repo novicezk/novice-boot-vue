@@ -66,7 +66,7 @@ import { UserOutlined, LockOutlined, TagOutlined } from "@ant-design/icons-vue";
 import { message } from "ant-design-vue";
 import { mapActions } from "vuex";
 const captchaSrc =
-  process.env.BACKEND_URL + "/core.System/captcha?height=38&width=120";
+  process.env.VUE_APP_BACKEND_URL + "/core.System/captcha?height=38&width=120";
 export default {
   components: {
     UserOutlined,
