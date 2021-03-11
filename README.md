@@ -114,7 +114,12 @@ module.exports = {
     }
 }
 ```
-7. 构建启动项目
+7. 添加 `.env`
+```properties
+BACKEND_URL=/backend
+```
+
+8. 构建启动项目
 ```shell
 npm install
 npm run serve
