@@ -1,21 +1,12 @@
 <template>
   <a-layout id="main-layout">
-    <a-layout-sider
-      v-model:collapsed="collapsed"
-      collapsible
-      :style="{ 'text-align': 'left' }"
-    >
+    <a-layout-sider v-model:collapsed="collapsed" collapsible :style="{ 'text-align': 'left' }">
       <div class="favicon-div" :style="`padding-left: ${collapsed ? 26 : 18}px`">
-        <a-avatar src="/favicon.ico" :size="28" />
-        <span v-if="!collapsed"> Novice Web </span>
+        <a-avatar :src="`${baseUrl}/favicon.ico`" :size="28" />
+        <span v-if="!collapsed">Novice Web</span>
       </div>
       <a-menu theme="dark" mode="inline" v-model:selectedKeys="selectedKeys">
-        <recursion-menu
-          v-for="item in menus"
-          :key="item.id"
-          :menu="item"
-          @click="handleSelect"
-        ></recursion-menu>
+        <recursion-menu v-for="item in menus" :key="item.id" :menu="item" @click="handleSelect"></recursion-menu>
       </a-menu>
     </a-layout-sider>
     <a-layout>
@@ -48,8 +39,7 @@
                 :type="item.buttonType.toLowerCase()"
                 :key="item.id"
                 @click="$refs['RE_' + business.id].executeOperation(item)"
-                >{{ item.name }}</a-button
-              >
+              >{{ item.name }}</a-button>
               <a-button @click="$refs['RE_' + business.id].cancel()">关闭</a-button>
             </a-space>
             <a-button v-else @click="$refs['RE_' + business.id].cancel()">关闭</a-button>
@@ -61,9 +51,9 @@
           />
         </a-modal>
       </a-layout-content>
-      <a-layout-footer :style="{ 'text-align': 'center', padding: '10px 50px' }"
-        >Copyright © 2020 novicezk</a-layout-footer
-      >
+      <a-layout-footer
+        :style="{ 'text-align': 'center', padding: '10px 50px' }"
+      >Copyright © 2020 novicezk</a-layout-footer>
     </a-layout>
   </a-layout>
 </template>
@@ -75,13 +65,14 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   components: {
     RecursionMenu,
-    MainHeader,
+    MainHeader
   },
   data() {
     return {
+      baseUrl: process.env.BASE_URL,
       collapsed: false,
       selectedKeys: [],
-      custom: "",
+      custom: ""
     };
   },
   computed: {
@@ -91,19 +82,19 @@ export default {
       "childBusinesses",
       "menus",
       "loadMenu",
-      "loadType",
+      "loadType"
     ]),
     businessName() {
       return this.$route.query.business;
     },
     customName() {
       return this.$route.query.custom;
-    },
+    }
   },
   watch: {
     businessName() {
       this.tryExecute();
-    },
+    }
   },
   methods: {
     ...mapActions([
@@ -112,26 +103,27 @@ export default {
       "getBusinessParams",
       "clearCurrentBusiness",
       "removeChildBusiness",
-      "loadMenus",
+      "loadMenus"
     ]),
     tryExecute() {
       if (!this.businessName && this.currentBusiness) {
         this.clearCurrentBusiness();
       } else if (
         this.businessName &&
-        (!this.currentBusiness || this.businessName !== this.currentBusiness.standardName)
+        (!this.currentBusiness ||
+          this.businessName !== this.currentBusiness.standardName)
       ) {
         let entityId = this.$route.query.entityId;
         if (entityId) {
           this.executeBusiness({
             name: this.businessName,
-            params: { entityId: entityId },
+            params: { entityId: entityId }
           });
         } else {
-          this.getBusinessParams(this.businessName).then((params) => {
+          this.getBusinessParams(this.businessName).then(params => {
             this.executeBusiness({
               name: this.businessName,
-              params: params,
+              params: params
             });
           });
         }
@@ -146,10 +138,10 @@ export default {
         this.clearCurrentBusiness();
         location.hash = "#/?custom=" + menu.target;
       }
-    },
+    }
   },
   created() {
-    Promise.all([this.loadMenus(), this.loadMetaAsync()]).then((reses) => {
+    Promise.all([this.loadMenus(), this.loadMetaAsync()]).then(reses => {
       let menus = reses[0];
       if (menus && menus.length && !this.businessName && !this.customName) {
         this.selectedKeys = [menus[0].id];
@@ -158,7 +150,7 @@ export default {
         this.tryExecute();
       }
     });
-  },
+  }
 };
 </script>
 <style lang="less">

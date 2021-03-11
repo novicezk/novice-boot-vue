@@ -1,7 +1,7 @@
 <template>
   <div class="login-container">
     <div class="top">
-      <a-avatar src="/favicon.ico" :size="60" />
+      <a-avatar :src="`${baseUrl}/favicon.ico`" :size="60" />
       <span class="title">Novice Boot</span>
     </div>
     <div class="desc">Novice Boot 后台管理系统的低代码开发框架</div>
@@ -33,12 +33,7 @@
           </a-input-password>
         </a-form-item>
         <a-form-item style="text-align: left" v-if="showCaptch">
-          <a-input
-            v-model:value="form.code"
-            style="width: 60%"
-            size="large"
-            placeholder="验证码"
-          >
+          <a-input v-model:value="form.code" style="width: 60%" size="large" placeholder="验证码">
             <template #prefix>
               <TagOutlined style="color: rgba(0, 0, 0, 0.25)" />
             </template>
@@ -58,8 +53,7 @@
             type="primary"
             html-type="submit"
             size="large"
-            >登录</a-button
-          >
+          >登录</a-button>
         </a-form-item>
       </a-form>
     </div>
@@ -71,15 +65,17 @@ import api from "../api/user";
 import { UserOutlined, LockOutlined, TagOutlined } from "@ant-design/icons-vue";
 import { message } from "ant-design-vue";
 import { mapActions } from "vuex";
-const captchaSrc = "/backend/core.System/captcha?height=38&width=120";
+const captchaSrc =
+  process.env.BACKEND_URL + "/core.System/captcha?height=38&width=120";
 export default {
   components: {
     UserOutlined,
     LockOutlined,
-    TagOutlined,
+    TagOutlined
   },
   data() {
     return {
+      baseUrl: process.env.BASE_URL,
       captchaSrc: null,
       showCaptch: false,
       loggingIn: false,
@@ -87,8 +83,8 @@ export default {
         username: "",
         password: "",
         code: "",
-        "remember-me": false,
-      },
+        "remember-me": false
+      }
     };
   },
   methods: {
@@ -97,7 +93,7 @@ export default {
       if (!this.form.username) {
         return;
       }
-      api.shouldShowCaptcha(this.form.username).then((res) => {
+      api.shouldShowCaptcha(this.form.username).then(res => {
         if (res.data && !this.showCaptch) {
           this.refreshCaptcha();
           this.showCaptch = true;
@@ -111,7 +107,7 @@ export default {
     },
     handleSubmit() {
       this.loggingIn = true;
-      api.login({ ...this.form }).then((res) => {
+      api.login({ ...this.form }).then(res => {
         this.loggingIn = false;
         if (res.data.code === 1) {
           let user = res.data.result;
@@ -129,8 +125,8 @@ export default {
           this.showCaptch = true;
         }
       });
-    },
-  },
+    }
+  }
 };
 </script>
 <style lang="less">

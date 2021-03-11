@@ -88,6 +88,7 @@ createApp(App).use(Novice).use(router).mount('#app');
 6. 添加 `vue.config.js`
 ```js
 module.exports = {
+    publicPath: './',
     lintOnSave: 'warning',
     css: {
         loaderOptions: {

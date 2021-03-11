@@ -1,20 +1,11 @@
 <template>
   <a-layout id="main-layout">
-    <a-layout-sider
-      v-model:collapsed="collapsed"
-      collapsible
-      :style="{ 'text-align': 'left' }"
-    >
+    <a-layout-sider v-model:collapsed="collapsed" collapsible :style="{ 'text-align': 'left' }">
       <div class="favicon-div" :style="`padding-left: ${collapsed ? 26 : 18}px`">
-        <a-avatar src="/favicon.ico" :size="28" />
-        <span v-if="!collapsed"> Novice Admin </span>
+        <a-avatar :src="`${baseUrl}/favicon.ico`" :size="28" />
+        <span v-if="!collapsed">Novice Admin</span>
       </div>
-      <a-menu
-        theme="dark"
-        mode="inline"
-        :selectedKeys="selectedMenus"
-        @click="handleSelect"
-      >
+      <a-menu theme="dark" mode="inline" :selectedKeys="selectedMenus" @click="handleSelect">
         <a-menu-item key="module">
           <RocketOutlined />
           <span>模型设置</span>
@@ -82,9 +73,9 @@
           </template>
         </a-tabs>
       </a-layout-content>
-      <a-layout-footer :style="{ 'text-align': 'center', padding: '10px 50px' }"
-        >Copyright © 2020 novicezk</a-layout-footer
-      >
+      <a-layout-footer
+        :style="{ 'text-align': 'center', padding: '10px 50px' }"
+      >Copyright © 2020 novicezk</a-layout-footer>
     </a-layout>
   </a-layout>
 </template>
@@ -96,7 +87,7 @@ import {
   MenuOutlined,
   ReadOutlined,
   SoundOutlined,
-  MinusOutlined,
+  MinusOutlined
 } from "@ant-design/icons-vue";
 import { mapGetters, mapActions } from "vuex";
 import { message } from "ant-design-vue";
@@ -127,43 +118,44 @@ export default {
     MenuList,
     CategoryList,
     RoleList,
-    UserList,
+    UserList
   },
   data() {
     return {
+      baseUrl: process.env.BASE_URL,
       collapsed: false,
       selectTab: "",
       selectedMenus: [],
       menuMap: {
         module: {
           key: "module",
-          title: "模型设置",
+          title: "模型设置"
         },
         menu: {
           key: "menu",
-          title: "菜单管理",
+          title: "菜单管理"
         },
         category: {
           key: "category",
-          title: "数据字典",
+          title: "数据字典"
         },
         listener: {
           key: "listener",
-          title: "侦听器",
+          title: "侦听器"
         },
         user: {
           key: "usersystem-user",
-          title: "用户",
+          title: "用户"
         },
         role: {
           key: "usersystem-role",
-          title: "角色",
-        },
-      },
+          title: "角色"
+        }
+      }
     };
   },
   computed: {
-    ...mapGetters(["adminTabs", "adminSelectTab"]),
+    ...mapGetters(["adminTabs", "adminSelectTab"])
   },
   watch: {
     selectTab(value) {
@@ -174,7 +166,7 @@ export default {
     adminSelectTab(value) {
       this.selectTab = value;
       this.selectedMenus = value.split("-");
-    },
+    }
   },
   methods: {
     ...mapActions([
@@ -182,7 +174,7 @@ export default {
       "removeAdminTab",
       "changeAdminSelectTab",
       "setAdminTabs",
-      "loadMetaAsync",
+      "loadMetaAsync"
     ]),
     handleSelect(item) {
       let key = item.key;
@@ -193,7 +185,7 @@ export default {
       } else if (key === "clearCache") {
         message.success("已重置服务端缓存");
       } else {
-        let tab = this.adminTabs.find((tab) => tab.key === key);
+        let tab = this.adminTabs.find(tab => tab.key === key);
         if (tab) {
           this.changeAdminSelectTab(tab.key);
         } else {
@@ -201,11 +193,11 @@ export default {
           this.pushAdminTab({
             key: menu.key,
             title: menu.title,
-            type: key,
+            type: key
           });
         }
       }
-    },
+    }
   },
   created() {
     this.loadMetaAsync();
@@ -213,6 +205,6 @@ export default {
   mounted() {
     this.selectTab = this.adminSelectTab;
     this.selectedMenus = this.selectTab.split("-");
-  },
+  }
 };
 </script>
