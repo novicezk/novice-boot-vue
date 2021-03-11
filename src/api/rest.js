@@ -10,7 +10,7 @@ rest.interceptors.response.use(
   error => {
     if (error.response && error.response.status === 403) {
       vuex.dispatch('seCurrenttUser', null);
-      location.href = "/#/login";
+      location.hash = "#/login";
     }
   }
 );

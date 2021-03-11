@@ -10,7 +10,7 @@ vue create novice-boot-vue-demo
 2. 修改 `package.json`
 ```json
   "dependencies": {
-    "novice-boot-vue": "^1.0.3",
+    "novice-boot-vue": "^1.0.4",
     "@kangc/v-md-editor": "^2.2.0",
     "ant-design-vue": "^2.0.1",
     "axios": "^0.21.0",

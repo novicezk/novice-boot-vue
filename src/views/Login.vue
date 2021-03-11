@@ -113,9 +113,9 @@ export default {
           let user = res.data.result;
           this.setCurrentUser(user);
           if (user.roles.indexOf("8b674539e0994d22b9353ee93e9f54fd") !== -1) {
-            location.href = "/#/admin";
+            location.hash = "#/admin";
           } else {
-            location.href = "/#/";
+            location.hash = "#/";
           }
         } else {
           message.error(res.data.description);

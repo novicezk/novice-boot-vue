@@ -171,7 +171,7 @@ export default {
       api.logout().then((res) => {
         if (res.data.code === 1) {
           this.setCurrentUser(null);
-          location.href = "/#/login";
+          location.hash = "#/login";
         } else {
           message.error(res.data.description);
         }
