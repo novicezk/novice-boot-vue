@@ -10,7 +10,7 @@ vue create novice-boot-vue-demo
 2. 修改 `package.json`
 ```json
   "dependencies": {
-    "novice-boot-vue": "^1.0.4",
+    "novice-boot-vue": "^1.0.6",
     "@kangc/v-md-editor": "^2.2.0",
     "ant-design-vue": "^2.0.1",
     "axios": "^0.21.0",
@@ -89,7 +89,7 @@ export default router;
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from "./router";
-import Novice from "novice-boot-vue/src/build";
+import Novice from "novice-boot-vue";
 
 createApp(App).use(Novice).use(router).mount('#app');
 ```

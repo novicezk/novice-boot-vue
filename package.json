@@ -1,6 +1,7 @@
 {
   "name": "novice-boot-vue",
-  "version": "1.0.4",
+  "version": "1.0.6",
+  "main": "build.js",
   "author": "novicezk <zhukai_novice@163.com> (https://github.com/novicezk)",
   "repository": {
     "type": "git",
@@ -13,6 +14,18 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
+  },
+  "peerDependencies": {
+    "@kangc/v-md-editor": "^2.2.0",
+    "ant-design-vue": "^2.0.1",
+    "axios": "^0.21.0",
+    "core-js": "^3.6.5",
+    "less": "^3.13.0",
+    "less-loader": "^7.1.0",
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.0-0",
+    "vuedraggable": "^4.0.1",
+    "vuex": "^4.0.0-0"
   },
   "dependencies": {
     "@kangc/v-md-editor": "^2.2.0",

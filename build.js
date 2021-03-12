@@ -1,10 +1,10 @@
-import store from './store'
+import store from './src/store'
 import Antd from 'ant-design-vue';
 import { Form } from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.less';
-import './assets/main.less';
+import './src/assets/main.less';
 import { FolderOpenOutlined, BarsOutlined, BookOutlined } from "@ant-design/icons-vue";
-import dmRegister from './components/renderer/register';
+import dmRegister from './src/components/renderer/register';
 
 export default {
     install: (app) => {
