@@ -1,6 +1,6 @@
 {
   "name": "novice-boot-vue",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "main": "build.js",
   "author": "novicezk <zhukai_novice@163.com> (https://github.com/novicezk)",
   "repository": {
@@ -16,39 +16,39 @@
     "lint": "vue-cli-service lint"
   },
   "peerDependencies": {
-    "@kangc/v-md-editor": "^2.2.0",
-    "ant-design-vue": "^2.0.1",
-    "axios": "^0.21.0",
-    "core-js": "^3.6.5",
+    "@kangc/v-md-editor": "^2.2.2",
+    "ant-design-vue": "^2.1.0",
+    "axios": "^0.21.1",
+    "core-js": "^3.9.1",
     "less": "^3.13.0",
     "less-loader": "^7.1.0",
-    "vue": "^3.0.0",
-    "vue-router": "^4.0.0-0",
+    "vue": "^3.0.7",
+    "vue-router": "^4.0.5",
     "vuedraggable": "^4.0.1",
-    "vuex": "^4.0.0-0"
+    "vuex": "^4.0.0"
   },
   "dependencies": {
-    "@kangc/v-md-editor": "^2.2.0",
-    "ant-design-vue": "^2.0.1",
-    "axios": "^0.21.0",
-    "core-js": "^3.6.5",
+    "@kangc/v-md-editor": "^2.2.2",
+    "ant-design-vue": "^2.1.0",
+    "axios": "^0.21.1",
+    "core-js": "^3.9.1",
     "less": "^3.13.0",
     "less-loader": "^7.1.0",
-    "vue": "^3.0.0",
-    "vue-router": "^4.0.0-0",
+    "vue": "^3.0.7",
+    "vue-router": "^4.0.5",
     "vuedraggable": "^4.0.1",
-    "vuex": "^4.0.0-0"
+    "vuex": "^4.0.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-plugin-router": "~4.5.0",
-    "@vue/cli-plugin-vuex": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/cli-plugin-babel": "~4.5.12",
+    "@vue/cli-plugin-eslint": "~4.5.12",
+    "@vue/cli-plugin-router": "~4.5.12",
+    "@vue/cli-plugin-vuex": "~4.5.12",
+    "@vue/cli-service": "~4.5.12",
+    "@vue/compiler-sfc": "^3.0.7",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^7.0.0-0"
+    "eslint-plugin-vue": "^7.8.0"
   },
   "eslintConfig": {
     "root": true,

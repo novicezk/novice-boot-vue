@@ -10,17 +10,17 @@ vue create novice-boot-vue-demo
 2. 修改 `package.json`
 ```json
   "dependencies": {
-    "novice-boot-vue": "^1.0.6",
-    "@kangc/v-md-editor": "^2.2.0",
-    "ant-design-vue": "^2.0.1",
-    "axios": "^0.21.0",
-    "core-js": "^3.6.5",
+    "novice-boot-vue": "^1.0.7",
+    "@kangc/v-md-editor": "^2.2.2",
+    "ant-design-vue": "^2.1.0",
+    "axios": "^0.21.1",
+    "core-js": "^3.9.1",
     "less": "^3.13.0",
     "less-loader": "^7.1.0",
-    "vue": "^3.0.0",
-    "vue-router": "^4.0.0-0",
+    "vue": "^3.0.7",
+    "vue-router": "^4.0.5",
     "vuedraggable": "^4.0.1",
-    "vuex": "^4.0.0-0"
+    "vuex": "^4.0.0"
   },
 ```
 3. 修改 `src/App.vue`
